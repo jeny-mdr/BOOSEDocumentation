@@ -7,11 +7,11 @@
 </head>
 <body><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Class MyWrite</div>
+    <div id="PageTitle">Class MyPeek</div>
     <div id="Contents" />
 
     
- Represents a command to write text on the canvas at the current cursor position.
+ Represents a command to retrieve a value from an array and store it in a variable (peek operation).
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -26,7 +26,7 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public class MyWrite : Command</pre></td></tr></tbody></table>
+    public class MyPeek : Command</pre></td></tr></tbody></table>
     
     
     
@@ -40,11 +40,11 @@
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Field ICanvas</div>
+    <div id="PageTitle">Field arrayName</div>
     <div id="Contents" />
 
     
- The canvas on which the text will be written.
+ The name of the array to retrieve the value from.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -59,7 +59,7 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    private readonly ICanvas canvas</pre></td></tr></tbody></table>
+    private string arrayName = string.Empty</pre></td></tr></tbody></table>
     
     
     
@@ -73,11 +73,11 @@
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Field textExpr</div>
+    <div id="PageTitle">Field targetVar</div>
     <div id="Contents" />
 
     
- The expression string representing the text to write, which may be a literal string, variable, or expression.
+ The name of the variable where the retrieved value will be stored.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -92,7 +92,7 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    private string textExpr = string.Empty</pre></td></tr></tbody></table>
+    private string targetVar = string.Empty</pre></td></tr></tbody></table>
     
     
     
@@ -106,11 +106,11 @@
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Constructor MyWrite</div>
+    <div id="PageTitle">Field rowExpr</div>
     <div id="Contents" />
 
     
- Initializes a new instance of the MyWrite class with the specified canvas.
+ The expression representing the row index in the array.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -125,40 +125,112 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public MyWrite(ICanvas c)</pre></td></tr></tbody></table>
+    private string rowExpr = string.Empty</pre></td></tr></tbody></table>
     
-    <div class='CommentHeader'>Parameters</div>
-<div class='CommentParameterName'>c</div><div class='ParameterCommentContainer'>
-The canvas to write text on.
+    
+    
+    
+    
+    
+    
+    
+
 </div>
 
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Field colExpr</div>
+    <div id="Contents" />
+
+    
+ The expression representing the column index in the array (defaults to "0" for 1D arrays).
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    private string colExpr = &quot;0&quot;</pre></td></tr></tbody></table>
     
     
     
     
-<div id='SectionHeader1' class='SectionHeader'>
-   <img id='SectionExpanderImg1' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' /> 
-   <span class='SectionHeader'>
-       <span class='ArrowCursor'>
-       Exceptions
-       </span>
-   </span>
-</div>
-<div id='SectionContainerDiv1' class='SectionContainer'>
-<table class='MembersTable'>
-<col width='25%' />
-<col width='75%' />
-<tr>
-<th>Exception</th>
-<th>Condition</th></tr>
-<tr>
-<td><span class='PseudoLink'>ArgumentNullException</span></td>
-<td>Thrown when the canvas is null.</td>
-</tr>
-</table
-</div>
+    
+    
+    
+    
+
 </div>
 
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Field rowIndex</div>
+    <div id="Contents" />
+
+    
+ The evaluated row index.
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    private int rowIndex</pre></td></tr></tbody></table>
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Field colIndex</div>
+    <div id="Contents" />
+
+    
+ The evaluated column index.
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    private int colIndex</pre></td></tr></tbody></table>
+    
+    
+    
+    
+    
+    
     
     
 
@@ -170,7 +242,7 @@ The canvas to write text on.
     <div id="Contents" />
 
     
- Checks and validates the parameters for the write command.
+ Checks the parameters for the peek command.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -189,9 +261,42 @@ The canvas to write text on.
     
     <div class='CommentHeader'>Parameters</div>
 <div class='CommentParameterName'>parameters</div><div class='ParameterCommentContainer'>
-The parameters array containing the text or expression to write.
+The parameters to check.
 </div>
 
+    
+    
+    
+    
+    
+    
+
+</div>
+
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Method Compile</div>
+    <div id="Contents" />
+
+    
+ Compiles the peek command by parsing the assignment syntax and validating the array exists.
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    public override void Compile()</pre></td></tr></tbody></table>
+    
+    
     
     
     
@@ -213,7 +318,7 @@ The parameters array containing the text or expression to write.
 <th>Condition</th></tr>
 <tr>
 <td><span class='PseudoLink'>CommandException</span></td>
-<td>Thrown when no text is provided.</td>
+<td>Thrown when the syntax is invalid or the array does not exist.</td>
 </tr>
 </table
 </div>
@@ -230,7 +335,7 @@ The parameters array containing the text or expression to write.
     <div id="Contents" />
 
     
- Executes the write command by evaluating the text expression and writing it to the canvas.
+ Executes the peek command by evaluating the indices, retrieving the value from the array, and storing it in the target variable.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -252,63 +357,30 @@ The parameters array containing the text or expression to write.
     
     
     
-    
-    
-
-</div>
-
-</p><hr></hr><p><div id="Header">
-    <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Method GetTextToWrite</div>
-    <div id="Contents" />
-
-    
- Processes the text expression to determine the actual text to write, handling string literals, variables, and expressions.
- 
-        <div id='SectionHeader0' class='SectionHeader'>
-        <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
-        <span class='SectionHeader'>
-            <span class='ArrowCursor' >
-            Syntax
-            </span>
-        </span>
-    </div>
-
-    <div id='SectionContainerDiv0' class='SectionContainer'>
-    <table class='CodeTable'>
-    <colgroup><col width='100%'></colgroup>
-    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    private string GetTextToWrite(string expr)</pre></td></tr></tbody></table>
-    
-    <div class='CommentHeader'>Parameters</div>
-<div class='CommentParameterName'>expr</div><div class='ParameterCommentContainer'>
-The text expression to process.
-</div>
-
-    <div class='CommentHeader'>Return Value</div>
-<div class='ParameterCommentContainer'>
-The resolved text string to write to the canvas.
-</div>
-
-    
-    
-    
-    
 <div id='SectionHeader1' class='SectionHeader'>
    <img id='SectionExpanderImg1' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' /> 
    <span class='SectionHeader'>
        <span class='ArrowCursor'>
-       Remarks
+       Exceptions
        </span>
    </span>
 </div>
 <div id='SectionContainerDiv1' class='SectionContainer'>
-
- This method handles three types of input:
- <ul><li>String literals enclosed in double quotes (quotes are removed)</li><li>Variable names (replaced with their values)</li><li>Expressions containing operators (evaluated and converted to strings)</li></ul>
+<table class='MembersTable'>
+<col width='25%' />
+<col width='75%' />
+<tr>
+<th>Exception</th>
+<th>Condition</th></tr>
+<tr>
+<td><span class='PseudoLink'>CommandException</span></td>
+<td>Thrown when indices are invalid, the array doesn't exist, or the array type is unsupported.</td>
+</tr>
+</table
 </div>
 </div>
 
+    
     
 
 </div>

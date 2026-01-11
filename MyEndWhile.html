@@ -7,11 +7,11 @@
 </head>
 <body><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Class MyWrite</div>
+    <div id="PageTitle">Class MyEndWhile</div>
     <div id="Contents" />
 
     
- Represents a command to write text on the canvas at the current cursor position.
+ Represents an END command for WHILE, FOR, and IF control structures.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -26,7 +26,7 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public class MyWrite : Command</pre></td></tr></tbody></table>
+    public class MyEndWhile : ConditionalCommand</pre></td></tr></tbody></table>
     
     
     
@@ -40,11 +40,11 @@
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Field ICanvas</div>
+    <div id="PageTitle">Constructor MyEndWhile</div>
     <div id="Contents" />
 
     
- The canvas on which the text will be written.
+ Initializes a new instance of the MyEndWhile class and resets BOOSE's internal Boolean counter to bypass restrictions.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -59,7 +59,7 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    private readonly ICanvas canvas</pre></td></tr></tbody></table>
+    public MyEndWhile()</pre></td></tr></tbody></table>
     
     
     
@@ -73,11 +73,11 @@
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Field textExpr</div>
+    <div id="PageTitle">Method Set</div>
     <div id="Contents" />
 
     
- The expression string representing the text to write, which may be a literal string, variable, or expression.
+ Sets the program and parameter list for the END command, determining which type of END it represents (while, for, if, or method).
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -92,73 +92,20 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    private string textExpr = string.Empty</pre></td></tr></tbody></table>
-    
-    
-    
-    
-    
-    
-    
-    
-
-</div>
-
-</p><hr></hr><p><div id="Header">
-    <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Constructor MyWrite</div>
-    <div id="Contents" />
-
-    
- Initializes a new instance of the MyWrite class with the specified canvas.
- 
-        <div id='SectionHeader0' class='SectionHeader'>
-        <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
-        <span class='SectionHeader'>
-            <span class='ArrowCursor' >
-            Syntax
-            </span>
-        </span>
-    </div>
-
-    <div id='SectionContainerDiv0' class='SectionContainer'>
-    <table class='CodeTable'>
-    <colgroup><col width='100%'></colgroup>
-    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public MyWrite(ICanvas c)</pre></td></tr></tbody></table>
+    public override void Set(StoredProgram program, string parameterList)</pre></td></tr></tbody></table>
     
     <div class='CommentHeader'>Parameters</div>
-<div class='CommentParameterName'>c</div><div class='ParameterCommentContainer'>
-The canvas to write text on.
+<div class='CommentParameterName'>program</div><div class='ParameterCommentContainer'>
+The stored program this command belongs to.
+</div>
+<div class='CommentParameterName'>parameterList</div><div class='ParameterCommentContainer'>
+The type of END command (e.g., "while", "for", "if", "method").
 </div>
 
     
     
     
     
-<div id='SectionHeader1' class='SectionHeader'>
-   <img id='SectionExpanderImg1' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' /> 
-   <span class='SectionHeader'>
-       <span class='ArrowCursor'>
-       Exceptions
-       </span>
-   </span>
-</div>
-<div id='SectionContainerDiv1' class='SectionContainer'>
-<table class='MembersTable'>
-<col width='25%' />
-<col width='75%' />
-<tr>
-<th>Exception</th>
-<th>Condition</th></tr>
-<tr>
-<td><span class='PseudoLink'>ArgumentNullException</span></td>
-<td>Thrown when the canvas is null.</td>
-</tr>
-</table
-</div>
-</div>
-
     
     
 
@@ -170,7 +117,7 @@ The canvas to write text on.
     <div id="Contents" />
 
     
- Checks and validates the parameters for the write command.
+ Checks the parameters for the END command.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -189,36 +136,46 @@ The canvas to write text on.
     
     <div class='CommentHeader'>Parameters</div>
 <div class='CommentParameterName'>parameters</div><div class='ParameterCommentContainer'>
-The parameters array containing the text or expression to write.
+The parameters to check.
 </div>
 
     
     
     
     
-<div id='SectionHeader1' class='SectionHeader'>
-   <img id='SectionExpanderImg1' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' /> 
-   <span class='SectionHeader'>
-       <span class='ArrowCursor'>
-       Exceptions
-       </span>
-   </span>
-</div>
-<div id='SectionContainerDiv1' class='SectionContainer'>
-<table class='MembersTable'>
-<col width='25%' />
-<col width='75%' />
-<tr>
-<th>Exception</th>
-<th>Condition</th></tr>
-<tr>
-<td><span class='PseudoLink'>CommandException</span></td>
-<td>Thrown when no text is provided.</td>
-</tr>
-</table
-</div>
+    
+    
+
 </div>
 
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Method Compile</div>
+    <div id="Contents" />
+
+    
+ Compiles the END command.
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    public override void Compile()</pre></td></tr></tbody></table>
+    
+    
+    
+    
+    
+    
     
     
 
@@ -230,7 +187,7 @@ The parameters array containing the text or expression to write.
     <div id="Contents" />
 
     
- Executes the write command by evaluating the text expression and writing it to the canvas.
+ Executes the END command by managing the control flow based on the end type (while, for, if, or method).
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -252,63 +209,30 @@ The parameters array containing the text or expression to write.
     
     
     
-    
-    
-
-</div>
-
-</p><hr></hr><p><div id="Header">
-    <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Method GetTextToWrite</div>
-    <div id="Contents" />
-
-    
- Processes the text expression to determine the actual text to write, handling string literals, variables, and expressions.
- 
-        <div id='SectionHeader0' class='SectionHeader'>
-        <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
-        <span class='SectionHeader'>
-            <span class='ArrowCursor' >
-            Syntax
-            </span>
-        </span>
-    </div>
-
-    <div id='SectionContainerDiv0' class='SectionContainer'>
-    <table class='CodeTable'>
-    <colgroup><col width='100%'></colgroup>
-    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    private string GetTextToWrite(string expr)</pre></td></tr></tbody></table>
-    
-    <div class='CommentHeader'>Parameters</div>
-<div class='CommentParameterName'>expr</div><div class='ParameterCommentContainer'>
-The text expression to process.
-</div>
-
-    <div class='CommentHeader'>Return Value</div>
-<div class='ParameterCommentContainer'>
-The resolved text string to write to the canvas.
-</div>
-
-    
-    
-    
-    
 <div id='SectionHeader1' class='SectionHeader'>
    <img id='SectionExpanderImg1' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' /> 
    <span class='SectionHeader'>
        <span class='ArrowCursor'>
-       Remarks
+       Exceptions
        </span>
    </span>
 </div>
 <div id='SectionContainerDiv1' class='SectionContainer'>
-
- This method handles three types of input:
- <ul><li>String literals enclosed in double quotes (quotes are removed)</li><li>Variable names (replaced with their values)</li><li>Expressions containing operators (evaluated and converted to strings)</li></ul>
+<table class='MembersTable'>
+<col width='25%' />
+<col width='75%' />
+<tr>
+<th>Exception</th>
+<th>Condition</th></tr>
+<tr>
+<td><span class='PseudoLink'>CommandException</span></td>
+<td>Thrown when END command is executed without a matching opening command.</td>
+</tr>
+</table
 </div>
 </div>
 
+    
     
 
 </div>

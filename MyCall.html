@@ -7,12 +7,11 @@
 </head>
 <body><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Class MyCommandFactory</div>
+    <div id="PageTitle">Class MyCall</div>
     <div id="Contents" />
 
     
- Custom command factory for BOOSE that maps command names to their corresponding command implementations.
- Implements the Singleton pattern to ensure only one factory instance exists.
+ Represents a method call command that invokes a previously defined method with arguments.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -27,7 +26,7 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public class MyCommandFactory : CommandFactory</pre></td></tr></tbody></table>
+    public class MyCall : Command</pre></td></tr></tbody></table>
     
     
     
@@ -41,11 +40,11 @@
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Constructor MyCommandFactory</div>
+    <div id="PageTitle">Method Set</div>
     <div id="Contents" />
 
     
- Private constructor to prevent direct instantiation.
+ Sets the program and parameter list for the method call, parsing the method name and arguments.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -60,11 +59,14 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    private MyCommandFactory(ICanvas c)</pre></td></tr></tbody></table>
+    public override void Set(StoredProgram program, string parameterList)</pre></td></tr></tbody></table>
     
     <div class='CommentHeader'>Parameters</div>
-<div class='CommentParameterName'>c</div><div class='ParameterCommentContainer'>
-The canvas used by commands created by this factory.
+<div class='CommentParameterName'>program</div><div class='ParameterCommentContainer'>
+The stored program this command belongs to.
+</div>
+<div class='CommentParameterName'>parameterList</div><div class='ParameterCommentContainer'>
+The parameter list containing the method name and arguments.
 </div>
 
     
@@ -78,12 +80,11 @@ The canvas used by commands created by this factory.
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Method Instance</div>
+    <div id="PageTitle">Method CheckParameters</div>
     <div id="Contents" />
 
     
- Gets the singleton instance of MyCommandFactory.
- Creates the instance on first call with the provided canvas.
+ Checks the parameters for the method call command.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -98,18 +99,14 @@ The canvas used by commands created by this factory.
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public static MyCommandFactory Instance(ICanvas c)</pre></td></tr></tbody></table>
+    public override void CheckParameters(string[] parameters)</pre></td></tr></tbody></table>
     
     <div class='CommentHeader'>Parameters</div>
-<div class='CommentParameterName'>c</div><div class='ParameterCommentContainer'>
-The canvas to use. Required on first call, ignored on subsequent calls.
+<div class='CommentParameterName'>parameters</div><div class='ParameterCommentContainer'>
+The parameters to check.
 </div>
 
-    <div class='CommentHeader'>Return Value</div>
-<div class='ParameterCommentContainer'>
-The singleton instance of MyCommandFactory.
-</div>
-
+    
     
     
     
@@ -120,12 +117,11 @@ The singleton instance of MyCommandFactory.
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Method Instance</div>
+    <div id="PageTitle">Method Compile</div>
     <div id="Contents" />
 
     
- Gets the singleton instance of MyCommandFactory.
- Can only be called after Instance(ICanvas) has been called at least once.
+ Compiles the method call command.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -140,40 +136,13 @@ The singleton instance of MyCommandFactory.
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public static MyCommandFactory Instance()</pre></td></tr></tbody></table>
-    
-    
-    <div class='CommentHeader'>Return Value</div>
-<div class='ParameterCommentContainer'>
-The singleton instance of MyCommandFactory.
-</div>
-
+    public override void Compile()</pre></td></tr></tbody></table>
     
     
     
-<div id='SectionHeader1' class='SectionHeader'>
-   <img id='SectionExpanderImg1' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' /> 
-   <span class='SectionHeader'>
-       <span class='ArrowCursor'>
-       Exceptions
-       </span>
-   </span>
-</div>
-<div id='SectionContainerDiv1' class='SectionContainer'>
-<table class='MembersTable'>
-<col width='25%' />
-<col width='75%' />
-<tr>
-<th>Exception</th>
-<th>Condition</th></tr>
-<tr>
-<td><span class='PseudoLink'>InvalidOperationException</span></td>
-<td>Thrown if called before Instance(ICanvas).</td>
-</tr>
-</table
-</div>
-</div>
-
+    
+    
+    
     
     
 
@@ -181,12 +150,12 @@ The singleton instance of MyCommandFactory.
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Method MakeCommand</div>
+    <div id="PageTitle">Method Execute</div>
     <div id="Contents" />
 
     
- Creates an <a href="" >ICommand</a> instance based on the specified command name.
- Returns a custom command if it matches, or falls back to the base <a href="" >CommandFactory</a>.
+ Executes the method call by locating the method, setting parameter values, executing the method body, and restoring program counter.
+ Handles cases where methods may not be found due to BOOSE restrictions by executing assignments manually.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -201,44 +170,13 @@ The singleton instance of MyCommandFactory.
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public override ICommand MakeCommand(string commandName)</pre></td></tr></tbody></table>
-    
-    <div class='CommentHeader'>Parameters</div>
-<div class='CommentParameterName'>commandName</div><div class='ParameterCommentContainer'>
-The name of the command to create. Case-insensitive.
-</div>
-
-    <div class='CommentHeader'>Return Value</div>
-<div class='ParameterCommentContainer'>
-An <a href="" >ICommand</a> object corresponding to <span class="Code">commandName</span>.
-</div>
-
+    public override void Execute()</pre></td></tr></tbody></table>
     
     
     
-<div id='SectionHeader1' class='SectionHeader'>
-   <img id='SectionExpanderImg1' src='C:\Users\Nitro\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' /> 
-   <span class='SectionHeader'>
-       <span class='ArrowCursor'>
-       Exceptions
-       </span>
-   </span>
-</div>
-<div id='SectionContainerDiv1' class='SectionContainer'>
-<table class='MembersTable'>
-<col width='25%' />
-<col width='75%' />
-<tr>
-<th>Exception</th>
-<th>Condition</th></tr>
-<tr>
-<td><span class='PseudoLink'>ArgumentNullException</span></td>
-<td>Thrown if <span class="Code">commandName</span> is null.</td>
-</tr>
-</table
-</div>
-</div>
-
+    
+    
+    
     
     
 
